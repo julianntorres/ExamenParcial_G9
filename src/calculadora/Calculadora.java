@@ -545,7 +545,7 @@ public class Calculadora extends javax.swing.JFrame {
         etiquetaMuestra.setText("");
         etiquetaNumeros.setText("0");
         operacion = "nula";
-        cadenaNumeros = "";
+        cadenaNumeros = "0";
         activado = true;
         punto = true;
     }//GEN-LAST:event_botonCActionPerformed
