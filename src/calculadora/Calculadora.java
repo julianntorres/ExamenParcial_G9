@@ -56,12 +56,13 @@ public class Calculadora extends javax.swing.JFrame {
         jButton42 = new javax.swing.JButton();
         botonPunto = new javax.swing.JButton();
         botonIgual = new javax.swing.JButton();
+        botonPotenciaN = new javax.swing.JButton();
         etiquetaNumeros = new javax.swing.JLabel();
         etiquetaMuestra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel.setLayout(new java.awt.GridLayout(5, 4));
+        panel.setLayout(new java.awt.GridLayout(6, 4));
 
         botonC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonC.setText("C");
@@ -252,6 +253,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         panel.add(botonIgual);
 
+        botonPotenciaN.setText("^");
+        botonPotenciaN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPotenciaNActionPerformed(evt);
+            }
+        });
+        panel.add(botonPotenciaN);
+
         etiquetaNumeros.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaNumeros.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaNumeros.setText("0");
@@ -263,7 +272,7 @@ public class Calculadora extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,11 +284,12 @@ public class Calculadora extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(etiquetaMuestra, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addComponent(etiquetaMuestra, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(etiquetaNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -429,13 +439,29 @@ public class Calculadora extends javax.swing.JFrame {
             if (segundoNumero == 0) {
                 etiquetaNumeros.setText("NoSeDividePor0");
             } else {
-                resultado = primerNumero / segundoNumero;;
+                resultado = primerNumero / segundoNumero;
                 etiquetaNumeros.setText(String.format("% .2f", resultado));
                 cadenaNumeros = String.valueOf(resultado);
                 operacion = "nula";
             }
         }
         
+        else if (operacion.equals("potencia_n")) {
+            segundoNumero = Double.parseDouble(cadenaNumeros);
+            if (segundoNumero == 0) {
+                etiquetaNumeros.setText("NoSeDividePor0");
+            } else {
+                //resultado = primerNumero / segundoNumero;;
+                resultado=1;
+                for (int i = 0; i < segundoNumero; i++) {
+                    resultado *= primerNumero;
+                    System.out.println(resultado);
+                }
+                etiquetaNumeros.setText(String.format("% .2f", resultado));
+                cadenaNumeros = String.valueOf(resultado);
+                operacion = "nula";
+            }
+        }
         etiquetaMuestra.setText("");
         activado = true;
         punto = false;
@@ -524,6 +550,17 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCEActionPerformed
 
+    private void botonPotenciaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPotenciaNActionPerformed
+        if(activado == true){
+            primerNumero = Double.parseDouble(cadenaNumeros);
+            etiquetaMuestra.setText(cadenaNumeros + " ^ ");
+            cadenaNumeros = "";
+            operacion = "potencia_n";
+            
+            activado = false;
+        }
+    }//GEN-LAST:event_botonPotenciaNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,6 +605,7 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton botonDivision;
     private javax.swing.JButton botonIgual;
     private javax.swing.JButton botonMultiplicar;
+    private javax.swing.JButton botonPotenciaN;
     private javax.swing.JButton botonPunto;
     private javax.swing.JButton botonRaiz;
     private javax.swing.JButton botonRestar;
