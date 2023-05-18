@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panel" max="32767" attributes="0"/>
+          <Component id="panel" pref="323" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -41,9 +41,8 @@
               <Component id="etiquetaMuestra" pref="31" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="etiquetaNumeros" min="-2" pref="73" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="panel" min="-2" pref="348" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="panel" min="-2" pref="360" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
