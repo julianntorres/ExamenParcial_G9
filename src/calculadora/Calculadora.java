@@ -40,28 +40,33 @@ public class Calculadora extends javax.swing.JFrame {
         botonRaiz = new javax.swing.JButton();
         botonDivision = new javax.swing.JButton();
         botonCE = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         botonMultiplicar = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
         jButton34 = new javax.swing.JButton();
         botonRestar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
         jButton38 = new javax.swing.JButton();
         botonSumar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
         jButton42 = new javax.swing.JButton();
         botonPunto = new javax.swing.JButton();
         botonIgual = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         etiquetaNumeros = new javax.swing.JLabel();
         etiquetaMuestra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel.setLayout(new java.awt.GridLayout(5, 4));
+        panel.setLayout(new java.awt.GridLayout(5, 5));
 
         botonC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonC.setText("C");
@@ -98,6 +103,9 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
         panel.add(botonCE);
+
+        jButton2.setText("jButton2");
+        panel.add(jButton2);
 
         jButton35.setBackground(new java.awt.Color(204, 204, 204));
         jButton35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -138,6 +146,9 @@ public class Calculadora extends javax.swing.JFrame {
         });
         panel.add(botonMultiplicar);
 
+        jButton3.setText("jButton3");
+        panel.add(jButton3);
+
         jButton32.setBackground(new java.awt.Color(204, 204, 204));
         jButton32.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton32.setText("4");
@@ -176,6 +187,17 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
         panel.add(botonRestar);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setText("x^-1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel.add(jButton1);
+        jButton1.getAccessibleContext().setAccessibleName("botonInversa");
+        jButton1.getAccessibleContext().setAccessibleDescription("");
 
         jButton37.setBackground(new java.awt.Color(204, 204, 204));
         jButton37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -216,6 +238,9 @@ public class Calculadora extends javax.swing.JFrame {
         });
         panel.add(botonSumar);
 
+        jButton4.setText("jButton4");
+        panel.add(jButton4);
+
         jButton41.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton41.setText("+/-");
         jButton41.addActionListener(new java.awt.event.ActionListener() {
@@ -252,6 +277,9 @@ public class Calculadora extends javax.swing.JFrame {
         });
         panel.add(botonIgual);
 
+        jButton5.setText("jButton5");
+        panel.add(jButton5);
+
         etiquetaNumeros.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaNumeros.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaNumeros.setText("0");
@@ -263,7 +291,7 @@ public class Calculadora extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,6 +552,16 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCEActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(activado == true) {
+            primerNumero = Double.parseDouble(cadenaNumeros);
+            etiquetaMuestra.setText("(" +cadenaNumeros+ ") ^ -1");
+            resultado = 1 / primerNumero;
+            etiquetaNumeros.setText(String.format("%.2f", resultado));
+            cadenaNumeros = String.valueOf(resultado);
+        }        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -574,17 +612,22 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton botonSumar;
     private javax.swing.JLabel etiquetaMuestra;
     private javax.swing.JLabel etiquetaNumeros;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }
